@@ -44,6 +44,17 @@ jobs:
       working-directory: ./backend
       run: npm run build
       
+    - name: Run Migrations
+      working-directory: ./backend
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: postgres
+        DB_PASSWORD: postgres
+        DB_NAME: test_events_db
+      run: npm run migrate
+
+      
     - name: Run Tests
       working-directory: ./backend
       env:
