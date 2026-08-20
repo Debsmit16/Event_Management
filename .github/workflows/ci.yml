@@ -114,4 +114,5 @@ jobs:
           cd /home/ubuntu/app
           sudo -u ubuntu git fetch origin prod
           sudo -u ubuntu git reset --hard origin/prod
+          sudo -u ubuntu docker-compose rm -f -s -v frontend backend
           sudo -u ubuntu docker-compose up --build -d
