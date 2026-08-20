@@ -23,9 +23,7 @@ describe('Event Endpoints', () => {
     await pool.query('DELETE FROM events WHERE owner_id = 9999');
   });
 
-  afterAll(async () => {
-    await pool.end();
-  });
+
 
   const mockEvent = {
     name: 'Test Event 1',

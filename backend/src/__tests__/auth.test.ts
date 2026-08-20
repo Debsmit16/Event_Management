@@ -13,9 +13,7 @@ describe('Auth Endpoints', () => {
     await pool.query('DELETE FROM users WHERE email LIKE $1', ['%@test.com']);
   });
 
-  afterAll(async () => {
-    await pool.end();
-  });
+
 
   const testUser = {
     name: 'Test User',
