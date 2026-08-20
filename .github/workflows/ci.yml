@@ -52,7 +52,7 @@ jobs:
         DB_USER: postgres
         DB_PASSWORD: postgres
         DB_NAME: test_events_db
-        JWT_SECRET: test_secret_key
+        JWT_SECRET: test_secret_key_that_is_at_least_32_chars_long
       run: npm run test --if-present
 
   frontend-build:
