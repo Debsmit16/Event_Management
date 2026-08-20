@@ -1,19 +1,40 @@
 version: '3.8'
 services:
+  frontend:
+    build:
+      context: ./frontend
+    container_name: event_manager_frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    container_name: event_manager_backend
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+      - redis
+
   db:
     image: postgres:15-alpine
     container_name: event_manager_db
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres_password
-      POSTGRES_DB: events_db
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: event_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      # We now use the npm run migrate script to manage schemas
-      # - ./backend/src/config/schema.sql:/docker-entrypoint-initdb.d/init.sql
 
   redis:
     image: redis:7-alpine
