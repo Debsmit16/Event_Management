@@ -41,7 +41,7 @@ export default function Home() {
           Next Generation Platform
         </motion.div>
 
-        <motion.h1 variants={itemVariants} className="text-6xl md:text-[7rem] font-black tracking-tighter text-slate-900 mb-6 leading-[0.95]">
+        <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl md:text-[7rem] font-black tracking-tighter text-slate-900 mb-6 leading-[1.1] md:leading-[0.95]">
           Manage Events <br />
           with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Elegance.</span>
         </motion.h1>
