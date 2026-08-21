@@ -1,26 +1,26 @@
-# 🚀 Event Manager Dashboard (Enterprise Edition)
+# Event Manager Dashboard (Enterprise Edition)
 
 **Live Demo URL:** `http://184.192.101.168` *(Note: Automatically deployed via CI/CD to AWS EC2)*
 
-A full-stack, enterprise-grade Event Management Dashboard built as per the assignment specifications. This project strictly follows the core requirements while significantly expanding upon the bonus objectives by implementing a robust CI/CD pipeline, Redis rate-limiting, comprehensive automated testing, and a fully Dockerized deployment strategy.
+A full-stack, enterprise-grade Event Management Dashboard built strictly according to the assignment specifications. This project follows the core requirements while significantly expanding upon the bonus objectives by implementing a robust CI/CD pipeline, Redis rate-limiting, comprehensive automated testing, and a fully Dockerized deployment strategy.
 
 ---
 
-## 🛠 Tech Stack (Core Requirements Met)
+## Tech Stack & Architecture (Core Requirements Met)
 
 - **Frontend:** Next.js 14 (App Router), React, TypeScript, Tailwind CSS, ShadCN UI
 - **Backend:** Node.js, Express.js, TypeScript
 - **Database:** PostgreSQL (using `pg` client)
 - **Database Access:** **Raw SQL Queries Only** (No ORMs like Prisma or Sequelize used)
-- **Architecture:** Clean monolithic repository with separate `/frontend` and `/backend` directories.
+- **Architecture:** Clean monolithic repository with strictly separated `/frontend` and `/backend` directories.
 - **Communication:** REST API architecture.
 
 ---
 
-## 🎯 Core Features Implemented
+## Core Features Implemented
 
 1. **Create Event Form**: Full form allowing users to create events with Event Name, Description, Date, and Location. Submitted via `POST /api/v1/events`.
-2. **List Events**: Fetches and beautifully displays all events from the backend PostgreSQL database.
+2. **List Events**: Fetches and displays all events from the backend PostgreSQL database.
 3. **Delete Event**: Actionable delete buttons on events. Calls `DELETE /api/v1/events/:id` and optimistically updates the UI.
 4. **Event By ID**: Dedicated event detail pages fetching specific data by ID. Users can apply/register to events here.
 5. **Owner Dashboard**: 
@@ -29,7 +29,7 @@ A full-stack, enterprise-grade Event Management Dashboard built as per the assig
 
 ---
 
-## ✨ Bonus Points Implemented
+## Bonus Points Implemented
 
 1. **Form Validation**: Strict validation via **Zod** on both the frontend (React Hook Form) and the backend Express middlewares to prevent invalid submissions.
 2. **Filtering Events**: Real-time client-side debounced search (by Name) and dropdown filters (by Location and Date).
@@ -43,7 +43,7 @@ A full-stack, enterprise-grade Event Management Dashboard built as per the assig
 
 ---
 
-## 🚀 Advanced & Enterprise Features (Beyond the Assignment)
+## Advanced & Enterprise Features (Beyond the Assignment)
 
 To demonstrate production-readiness, the following advanced features were built from scratch:
 
@@ -66,7 +66,22 @@ To demonstrate production-readiness, the following advanced features were built 
 
 ---
 
-## 📂 Project Structure
+## API Documentation
+
+- `POST /api/v1/auth/register` - Register a new user
+- `POST /api/v1/auth/login` - Login
+- `GET /api/v1/events` - Get all events (with pagination/search)
+- `POST /api/v1/events` - Create an event (Auth required)
+- `GET /api/v1/events/:id` - Get event by ID
+- `PUT /api/v1/events/:id` - Update event (Auth required)
+- `DELETE /api/v1/events/:id` - Delete event (Auth required)
+- `POST /api/v1/events/:id/register` - Register for an event
+- `GET /api/v1/events/:id/participants` - Get event participants (Auth required)
+- `PATCH /api/v1/events/participants/:id/cancel` - Cancel a registration (Auth required)
+
+---
+
+## Project Structure
 
 ```
 ├── .github/workflows/       # CI/CD Pipeline configurations
@@ -87,7 +102,7 @@ To demonstrate production-readiness, the following advanced features were built 
 
 ---
 
-## 💻 Local Development Setup
+## Local Development Setup
 
 ### Prerequisites
 - Node.js (v20+)
