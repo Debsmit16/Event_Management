@@ -55,16 +55,16 @@ export default function Navbar() {
         scrolled ? "glass-card border-x-0 border-t-0 shadow-sm py-4" : "bg-transparent py-6"
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-extrabold tracking-tighter text-slate-900 flex items-center gap-2">
+      <div className="container mx-auto px-4 flex flex-wrap items-center justify-between gap-y-4">
+        <Link href="/" className="text-xl md:text-2xl font-extrabold tracking-tighter text-slate-900 flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center rotate-3 hover:rotate-0 transition-transform">
             <span className="text-white text-lg font-black leading-none">E</span>
           </div>
           Event<span className="text-primary font-light">Manager</span>
         </Link>
 
-        <div className="flex items-center gap-8">
-          <div className="hidden md:flex items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 w-full md:w-auto">
+          <div className="flex items-center gap-4 md:gap-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.path;
               return (
